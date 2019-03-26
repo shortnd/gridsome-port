@@ -1,13 +1,24 @@
 <template>
   <Layout>
-    <div class="container mx-auto">
-      <h2>Projects</h2>
-      <ul>
-        <li v-for="project in $page.projects.edges" :key="project.node.id">
-          <g-link :to="project.node.path">{{ project.node.title }}</g-link>
-        </li>
-      </ul>
-    </div>
+    <template slot="page_title">
+      Collin O'Connell
+    </template>
+    <template slot="sub_title">
+      Full Stack Developer
+    </template>
+    <template slot="page_brief">
+      Coding, Laravel, Vue, CSS, Accessibility and <a class="text-gold font-bold" href="//www.detcityfc.com">#DCTID</a>
+    </template>
+    <template slot="main">
+      <div class="grey-darkest text-lg font-serif">
+        <p>
+          Thanks for stopping by if you would like to see some of my work check out my <g-link to="/projects">projects</g-link>.
+        </p>
+        <p>
+          If you would like to talk to me feel free to <g-link to="/contact">contact me.</g-link>
+        </p>
+      </div>
+    </template>
   </Layout>
 </template>
 

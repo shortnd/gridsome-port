@@ -1,5 +1,8 @@
 <template>
   <Layout>
+    <template slot="page_title">
+      {{ $page.project.title }}
+    </template>
     <div v-html="$page.project.content"></div>
   </Layout>
 </template>
@@ -17,7 +20,8 @@ query Project($path: String!) {
 export default {
   metaInfo() {
     return {
-      title: this.$page.project.title
+      title: this.$page.project.title,
+      // siteDescription: this.$page.project.description
     }
   }
 }
