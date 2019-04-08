@@ -1,26 +1,37 @@
 <template>
-  <Layout>
+  <Layout customId="about">
     <template slot="page_title">
-      About Us
+      <!-- About Us -->
+      {{ $page.about.pageTitle }}
     </template>
     <template slot="sub_title">
-      Learn More About Me
+      <!-- Learn More About Me -->
+      {{ $page.about.subTitle }}
     </template>
-    <!-- <h1>About us</h1> -->
     <template slot="main">
-      <div class="text-center">
-        <a class="block" href="https://github.com/shortnd">Github</a>
-        <a class="block" href="https://twitter.com/shortnd">Twitter</a>
-        <a class="block" href="#">Linkin</a>
-      </div>
+      <div v-html="$page.about.content" />
     </template>
   </Layout>
 </template>
 
+<page-query>
+query {
+  about: myPages(path: "/content/pages/about") {
+    pageTitle
+    subTitle
+    content
+  }
+}
+</page-query>
+
 <script>
 export default {
   metaInfo: {
-    title: 'About us'
+    title: 'About'
   }
 }
 </script>
+
+<style>
+</style>
+

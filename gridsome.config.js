@@ -18,5 +18,12 @@ module.exports = {
         route: '/projects/:slug'
       }
     },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/pages/**/*.md',
+        typeName: 'MyPages',
+      }
+    },
   ]
 }

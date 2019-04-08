@@ -27,7 +27,7 @@
         </div>
       </section><!--/#hero-->
       <main id="main" class="mt-16 md:w-4/5 sm:w-full px-2 text-grey-darkest container mx-auto">
-        <slot name="main"/>
+        <slot name="main" :id="customId"/>
       </main>
     </div>
     <footer class="bg-rouge pin-b">
@@ -54,7 +54,8 @@ export default {
     'page_title',
     'sub_title',
     'page_brief',
-    'main'
+    'main',
+    'customId',
   ],
   methods: {
     focusMain() {
@@ -83,6 +84,12 @@ export default {
 }
 #main p {
   @apply mb-10 mx-auto px-2
+}
+#about {
+  text-align: center
+}
+#about a {
+  display:block
 }
 @media (min-width: 576px) {
   #main p {

@@ -1,29 +1,26 @@
 <template>
   <Layout>
     <template slot="page_title">
-      Collin O'Connell
+      <!-- Collin O'Connell -->
+      {{ $page.index.pageTitle }}
     </template>
     <template slot="sub_title">
-      Full Stack Developer
+      <!-- Full Stack Developer -->
+      {{ $page.index.subTitle }}
     </template>
     <template slot="page_brief">
-      Coding, Laravel, Vue, CSS, Accessibility and <a class="text-gold font-bold" href="//www.detcityfc.com">#DCTID</a>
+      <div v-html="$page.index.pageBrief"></div>
     </template>
     <template slot="main">
-      <div class="grey-darkest text-lg font-serif">
-        <p>
-          Thanks for stopping by if you would like to see some of my work check out my <g-link to="/projects">projects</g-link>.
-        </p>
-        <p>
-          If you would like to talk to me feel free to <g-link to="/contact">contact me.</g-link>
-        </p>
+      <div class="grey-darkest text-lg font-serif"
+        v-html="$page.index.content">
       </div>
     </template>
   </Layout>
 </template>
 
 <page-query>
-query Projects{
+query {
   projects: allProject {
     edges {
       node {
@@ -32,6 +29,12 @@ query Projects{
         path
       }
     }
+  }
+  index: myPages(path: "/content/pages") {
+    pageTitle
+    subTitle
+    pageBrief
+    content
   }
 }
 </page-query>

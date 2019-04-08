@@ -7,7 +7,7 @@
         <div class="mx-auto md:w-4/5 sm:w-full container">
           <h2 class="text-center text-rouge text-2xl uppercase">Current Projects</h2>
           <div class="flex justify-between flex-wrap mb-12">
-            <g-link class="flex-1 no-underline shadow p-4 m-2" v-for="{node} in $page.projects.edges" :key="node.id">
+            <g-link class="flex-1 no-underline shadow p-4 m-2" v-for="{node} in $page.projects.edges" :key="node.id" :to="node.path">
               <h3 class="font-thin text-grey-darkest">{{ node.title }}</h3>
               <p class="text-grey-darker md:w-full w-full sm:w-full lg:w-full p0">
                 {{ node.description }}
@@ -26,7 +26,7 @@
 
 <page-query>
 query Projects {
-  projects: allProject {
+  projects: allProject(perPage: 3) {
     edges {
       node {
         id
