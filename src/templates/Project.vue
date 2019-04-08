@@ -3,7 +3,9 @@
     <template slot="page_title">
       {{ $page.project.title }}
     </template>
-    <div v-html="$page.project.content"></div>
+    <template slot="main">
+      <div v-html="$page.project.content"></div>
+    </template>
   </Layout>
 </template>
 

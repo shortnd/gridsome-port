@@ -13,6 +13,9 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
+        remark: {
+          plugins: [require('remark-attr'), require('remark-bracketed-spans')]
+        },
         path: 'content/projects/**/*.md',
         typeName: 'Project',
         route: '/projects/:slug'

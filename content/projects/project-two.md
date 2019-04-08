@@ -1,4 +1,4 @@
 ---
   title: Project Two
 ---
-lorem impsum
+[lorem impsum]{.text-center .text-red}
