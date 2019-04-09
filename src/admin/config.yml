@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: shortnd/gridsome-port
 media_folder: "static/uploads"
 public_folder: "/images/uploads"
