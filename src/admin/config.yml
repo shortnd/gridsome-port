@@ -1,0 +1,15 @@
+backend:
+  name: github
+  repo: shortnd/gridsome-port
+media_folder: "static/uploads"
+public_folder: "/images/uploads"
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{ slug }}"
+    fields:
+      - { label: "title", name: "title", widget: "string" }
+      - { label: "description", name: "description", widget: "text" }
+      - { label: "body", name: "body", widget: "markdown" }

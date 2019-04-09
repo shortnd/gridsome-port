@@ -6,6 +6,13 @@
 
 module.exports = {
   siteName: 'coconnell.me',
+  transformers: {
+    remark: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      anchorClassName: 'icon icon-link',
+    }
+  },
   plugins: [
     {
       use: 'gridsome-plugin-tailwindcss',
@@ -13,12 +20,14 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        remark: {
-          plugins: [require('remark-attr'), require('remark-bracketed-spans')]
-        },
         path: 'content/projects/**/*.md',
         typeName: 'Project',
-        route: '/projects/:slug'
+        route: '/projects/:slug',
+        remark: {
+          plugins: [
+            require('remark-attr'), require('remark-bracketed-spans'),
+          ]
+        }
       }
     },
     {
@@ -26,7 +35,15 @@ module.exports = {
       options: {
         path: 'content/pages/**/*.md',
         typeName: 'MyPages',
+        remark: {
+          plugins: [
+            require('remark-attr'), require('remark-bracketed-spans'),
+          ]
+        }
       }
     },
+    {
+      use: 'gridsome-plugin-netlify-cms'
+    }
   ]
 }

@@ -9,7 +9,7 @@
       {{ $page.about.subTitle }}
     </template>
     <template slot="main">
-      <div v-html="$page.about.content" />
+      <div class="text-center" v-html="$page.about.content" />
     </template>
   </Layout>
 </template>
@@ -32,6 +32,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
 
